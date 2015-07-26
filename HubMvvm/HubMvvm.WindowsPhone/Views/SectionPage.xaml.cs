@@ -1,8 +1,8 @@
 ﻿namespace HubMvvm.Views
 {
-    public sealed partial class HubPage : Common.NavigationPage
+    public sealed partial class SectionPage : Common.NavigationPage
     {
-        public HubPage()
+        public SectionPage()
         {
             this.InitializeComponent();
         }

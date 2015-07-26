@@ -19,43 +19,6 @@ namespace HubMvvm.Common
     /// キーボード ショートカットを登録できます。さらに、SuspensionManger も統合されているため、
     /// ページ間で移動するときのプロセス継続時間管理および状態管理も処理できます。
     /// </summary>
-    /// <example>
-    /// NavigationHelper を利用するには、この 2 つの手順に従うか、
-    /// BasicPage などの BlankPage 以外のページ アイテム テンプレートを使用します。
-    /// 
-    /// 1) ページのコンストラクター内などの場所に NavigationHelper インスタンスを作成し、
-    ///   LoadState イベントと SaveState イベントに対するコールバックを
-    ///     登録します。
-    /// <code>
-    ///     public MyPage()
-    ///     {
-    ///         this.InitializeComponent();
-    ///         var navigationHelper = new NavigationHelper(this);
-    ///         this.navigationHelper.LoadState += navigationHelper_LoadState;
-    ///         this.navigationHelper.SaveState += navigationHelper_SaveState;
-    ///     }
-    ///     
-    ///     private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
-    ///     { }
-    ///     private async void navigationHelper_SaveState(object sender, LoadStateEventArgs e)
-    ///     { }
-    /// </code>
-    /// 
-    /// 2) ページがナビゲーションに追加されるたびに、そのページを登録して NavigationHelper を呼び出すには、
-    ///     <see cref="Windows.UI.Xaml.Controls.Page.OnNavigatedTo"/>
-    ///     イベントと <see cref="Windows.UI.Xaml.Controls.Page.OnNavigatedFrom"/> イベントをオーバーライドします。
-    /// <code>
-    ///     protected override void OnNavigatedTo(NavigationEventArgs e)
-    ///     {
-    ///         navigationHelper.OnNavigatedTo(e);
-    ///     }
-    ///     
-    ///     protected override void OnNavigatedFrom(NavigationEventArgs e)
-    ///     {
-    ///         navigationHelper.OnNavigatedFrom(e);
-    ///     }
-    /// </code>
-    /// </example>
     [Windows.Foundation.Metadata.WebHostHidden]
     public class NavigationHelper : DependencyObject
     {

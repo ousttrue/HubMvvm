@@ -5,6 +5,6 @@
         public ItemPage()
         {
             this.InitializeComponent();
-        }
+        } 
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
@@ -32,6 +32,44 @@ namespace HubMvvm.ViewModels
 
     public class HubViewModel: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        void RaisePropertyChanged(String propertyname)
+        {
+            var tmp = PropertyChanged;
+            if (tmp == null) return;
+            tmp(this, new PropertyChangedEventArgs(propertyname));
+        }
+
+        IEnumerable<Data.SampleDataGroup> m_groups;
+        Task m_groupsTask;
+        public IEnumerable<Data.SampleDataGroup> Groups
+        {
+            get
+            {
+                if (m_groups == null && m_groupsTask == null)
+                {
+                    m_groupsTask = Data.SampleDataSource.GetGroupsAsync().ContinueWith(x =>
+                    {
+                        Groups = x.Result;
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
+                }
+                return m_groups;
+            }
+            set
+            {
+                if (m_groups == value) return;
+                m_groups = value;
+                RaisePropertyChanged("Groups");
+                RaisePropertyChanged("Section1Items");
+                RaisePropertyChanged("Section2Items");
+                RaisePropertyChanged("Section3Items");
+                RaisePropertyChanged("Section4Items");
+            }
+        }
+
+        Data.SampleDataSource m_data;
+
+
         #region Section1
         Section m_section1;
         public Section Section1
@@ -72,53 +110,54 @@ namespace HubMvvm.ViewModels
         #endregion
 
         #region Section3
-        Task m_task;
-        Data.SampleDataGroup m_section3;
-        public event PropertyChangedEventHandler PropertyChanged;
-        void RaisePropertyChanged(String propertyname)
-        {
-            var tmp = PropertyChanged;
-            if (tmp == null) return;
-            tmp(this, new PropertyChangedEventArgs(propertyname));
-        }
         public Data.SampleDataGroup Section3Items
         {
             get
             {
-                if(m_section3== null && m_task==null)
+                try
                 {
-                    m_task=Data.SampleDataSource.GetGroupAsync("Group-4").ContinueWith(x =>
-                    {
-                        Section3Items = x.Result;
-                    }, TaskScheduler.FromCurrentSynchronizationContext());
+                    return Groups.Skip(2).First();
                 }
-                return m_section3;
-            }
-            private set
-            {
-                if (m_section3 == value) return;
-                m_section3 = value;
-                RaisePropertyChanged("Section3Items");
+                catch(Exception ex)
+                {
+                    return null;
+                }
             }
         }
         #region NavigateToSection
-        RelayCommand<HubSectionHeaderClickEventArgs> m_navigateToSectionCommand;
-        public ICommand NavigateToSectionCommand
+        RelayCommand<HubSectionHeaderClickEventArgs> m_navigateFromHubSectionCommand;
+        public ICommand NavigateFromHubSectionCommand
         {
             get
             {
-                if (m_navigateToSectionCommand == null)
+                if (m_navigateFromHubSectionCommand == null)
                 {
-                    m_navigateToSectionCommand = new RelayCommand<HubSectionHeaderClickEventArgs>(NavigateToSection);
+                    m_navigateFromHubSectionCommand = new RelayCommand<HubSectionHeaderClickEventArgs>(NavigateToSection);
                 }
-                return m_navigateToSectionCommand;
+                return m_navigateFromHubSectionCommand;
             }
         }
-
         void NavigateToSection(HubSectionHeaderClickEventArgs e)
         {
-            HubSection section = e.Section;
-            var group = section.DataContext;
+            var group = e.Section.DataContext;
+            NavigationService.Instance.Navigate(typeof(Views.SectionPage), group);
+        }
+
+        RelayCommand<ItemClickEventArgs> m_navigateFromListViewToSectionCommand;
+        public ICommand NavigateFromListViewToSectionCommand
+        {
+            get
+            {
+                if (m_navigateFromListViewToSectionCommand == null)
+                {
+                    m_navigateFromListViewToSectionCommand = new RelayCommand<ItemClickEventArgs>(NavigateFromListViewToSection);
+                }
+                return m_navigateFromListViewToSectionCommand;
+            }
+        }
+        void NavigateFromListViewToSection(ItemClickEventArgs e)
+        {
+            var group = e.ClickedItem;
             NavigationService.Instance.Navigate(typeof(Views.SectionPage), group);
         }
         #endregion

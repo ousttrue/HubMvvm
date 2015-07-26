@@ -20,7 +20,7 @@ namespace HubMvvm.Common
     /// アップグレード時には破棄が必要な情報を格納する場合にのみ
     /// 使用する必要があります。
     /// </summary>
-    internal sealed class SuspensionManager
+    public sealed class SuspensionManager
     {
         private static Dictionary<string, object> _sessionState = new Dictionary<string, object>();
         private static List<Type> _knownTypes = new List<Type>();

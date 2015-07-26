@@ -2,28 +2,28 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace HubMvvm.Views
+namespace HubMvvm.Common
 {
     public class NavigationPage: Page
     {
-        HubMvvm.Common.NavigationHelper m_navigationHelper;
-        public HubMvvm.Common.NavigationHelper NavigationHelper
+        NavigationHelper m_navigationHelper;
+        public NavigationHelper NavigationHelper
         {
             get { return m_navigationHelper; }
         }
 
         public NavigationPage()
         {
-            m_navigationHelper = new HubMvvm.Common.NavigationHelper(this);
+            m_navigationHelper = new NavigationHelper(this);
             m_navigationHelper.LoadState += NavigationHelper_LoadState;
             m_navigationHelper.SaveState += NavigationHelper_SaveState;
         }
 
-        private async void NavigationHelper_LoadState(object sender, HubMvvm.Common.LoadStateEventArgs e)
+        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
         }
 
-        private void NavigationHelper_SaveState(object sender, HubMvvm.Common.SaveStateEventArgs e)
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
         }
 

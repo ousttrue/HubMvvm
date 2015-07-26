@@ -1,9 +1,9 @@
-﻿<local:NavigationPage
+﻿<common:NavigationPage
     x:Name="pageRoot"
     x:Class="HubMvvm.Views.ItemPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:HubMvvm.Views"
+    xmlns:common="using:HubMvvm.Common"
     xmlns:data="using:HubMvvm.Data"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -48,4 +48,4 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
     </Grid>
-</local:NavigationPage>
+</common:NavigationPage>

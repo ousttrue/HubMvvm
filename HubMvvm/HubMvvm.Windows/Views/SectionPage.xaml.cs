@@ -2,7 +2,7 @@
 
 namespace HubMvvm.Views
 {
-    public sealed partial class SectionPage : NavigationPage
+    public sealed partial class SectionPage : Common.NavigationPage
     {
         public SectionPage()
         {
