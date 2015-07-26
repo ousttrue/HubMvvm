@@ -67,7 +67,7 @@
             
             <HubSection Width="780" Margin="0,0,80,0">
                 <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="../Assets/MediumGray.png" Stretch="UniformToFill" />
                 </HubSection.Background>
             </HubSection>
 
@@ -80,7 +80,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Image Source="Assets/MediumGray.png" Stretch="Fill" Width="420" Height="280"/>
+                        <Image Source="../Assets/MediumGray.png" Stretch="Fill" Width="420" Height="280"/>
                         <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap"  
                                    Text="{Binding SubTitle}"/>
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Margin="0,10,0,0" 
@@ -155,10 +155,10 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <Image Source="Assets/MediumGray.png" Grid.ColumnSpan="5" Margin="0,0,0,10" Stretch="Fill" />
-                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Stretch="Fill"/>
-                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Grid.Column="2" Stretch="Fill"/>
-                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Grid.Column="4" Stretch="Fill"/>
+                            <Image Source="../Assets/MediumGray.png" Grid.ColumnSpan="5" Margin="0,0,0,10" Stretch="Fill" />
+                            <Image Source="../Assets/MediumGray.png" Grid.Row="1" Stretch="Fill"/>
+                            <Image Source="../Assets/MediumGray.png" Grid.Row="1" Grid.Column="2" Stretch="Fill"/>
+                            <Image Source="../Assets/MediumGray.png" Grid.Row="1" Grid.Column="4" Stretch="Fill"/>
                             <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Grid.ColumnSpan="5"  Margin="0,15,0,0"
                                        x:Uid="DescriptionHeader" Text="Description text:"/>
                             <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3" Grid.ColumnSpan="5"
