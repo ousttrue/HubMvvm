@@ -8,10 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="using:Microsoft.Xaml.Interactivity"    
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"    
-    d:DataContext="{Binding Source={d:DesignData Source=../HubMvvm.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+    d:DataContext="{Binding Source={d:DesignData Source=../../HubMvvm.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
     xmlns:data="using:HubMvvm.Data"
-    mc:Ignorable="d">
-
+    mc:Ignorable="d"
+    >
     <Page.DataContext>
         <vm:HubViewModel />
     </Page.DataContext>

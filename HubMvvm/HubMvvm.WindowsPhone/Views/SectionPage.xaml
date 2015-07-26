@@ -1,16 +1,17 @@
 ﻿<common:NavigationPage
-    x:Class="HubMvvm.Views.SectionPage"
+    x:Class="HubMvvm.Views.SectionPage"    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:common="using:HubMvvm.Common"
     xmlns:data="using:HubMvvm.Data"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="using:Microsoft.Xaml.Interactivity"    
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DataContext="{Binding Groups[0], Source={d:DesignData Source=../HubMvvm.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    d:DataContext="{Binding Groups[0], Source={d:DesignData Source=../../HubMvvm.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
     <common:NavigationPage.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
