@@ -12,9 +12,6 @@
     xmlns:data="using:HubMvvm.Data"
     mc:Ignorable="d"
     >
-    <Page.DataContext>
-        <vm:HubViewModel />
-    </Page.DataContext>
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>

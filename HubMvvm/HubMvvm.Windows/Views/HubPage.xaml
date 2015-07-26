@@ -12,9 +12,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{Binding Source={d:DesignData Source=../../HubMvvm.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"    
     mc:Ignorable="d">
-    <common:NavigationPage.DataContext>
-        <vm:HubViewModel/>
-    </common:NavigationPage.DataContext>
     <common:NavigationPage.Resources>
         <!-- セクション 4 に表示される、グリッドに適した 310x260 ピクセルのアイテム テンプレート -->
         <DataTemplate x:Key="Standard310x260ItemTemplate">

@@ -67,9 +67,6 @@ namespace HubMvvm.ViewModels
             }
         }
 
-        Data.SampleDataSource m_data;
-
-
         #region Section1
         Section m_section1;
         public Section Section1
